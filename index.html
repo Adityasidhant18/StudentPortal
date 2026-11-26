@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Attendance & Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginPage" class="login-container">
+    <div class="login-box">
+        <h1>🎓 Student Portal</h1>
+        <p>Teacher / Admin Login</p>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="error"></p>
+        <small>Username: admin | Password: 1234</small>
+    </div>
+</div>
+
+<div id="dashboard" style="display:none">
+
+<header>
+    <h2>Student Management Portal</h2>
+    <button onclick="logout()">Logout</button>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Dashboard</button>
+    <button onclick="showSection('students')">Students</button>
+    <button onclick="showSection('attendance')">Attendance</button>
+    <button onclick="showSection('results')">Results</button>
+</nav>
+
+<main>
+
+<section id="home" class="section">
+    <h2>Dashboard</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Total Students</h3>
+            <h1 id="total">0</h1>
+        </div>
+        <div class="card">
+            <h3>Present Today</h3>
+            <h1 id="present">0</h1>
+        </div>
+        <div class="card">
+            <h3>Absent Today</h3>
+            <h1 id="absent">0</h1>
+        </div>
+    </div>
+</section>
+
+<section id="students" class="section" style="display:none">
+    <h2>Student Management</h2>
+    <input id="studentName" placeholder="Student Name">
+    <input id="roll" placeholder="Roll Number">
+    <input id="course" placeholder="Course">
+    <button onclick="addStudent()">Add Student</button>
+    <input id="search" placeholder="Search Student" oninput="displayStudents()">
+    <div id="studentList"></div>
+</section>
+
+<section id="attendance" class="section" style="display:none">
+    <h2>Attendance Management</h2>
+    <input type="date" id="attDate">
+    <div id="attendanceList"></div>
+    <button onclick="saveAttendance()">Save Attendance</button>
+</section>
+
+<section id="results" class="section" style="display:none">
+    <h2>Result Management</h2>
+    <input id="resultRoll" placeholder="Enter Roll Number">
+    <input id="m1" type="number" placeholder="Mathematics (100)">
+    <input id="m2" type="number" placeholder="Computer (100)">
+    <input id="m3" type="number" placeholder="English (100)">
+    <input id="m4" type="number" placeholder="Physics (100)">
+    <input id="m5" type="number" placeholder="Chemistry (100)">
+    <button onclick="calculateResult()">Calculate Result</button>
+    <div id="resultOutput"></div>
+</section>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
